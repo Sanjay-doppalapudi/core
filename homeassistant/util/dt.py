@@ -309,7 +309,7 @@ def parse_time(time_str: str) -> dt.time | None:
     Return None if invalid.
     """
     parts = str(time_str).split(":")
-    if len(parts) < 2:
+    if len(parts) not in (2, 3):
         return None
     try:
         hour = int(parts[0])

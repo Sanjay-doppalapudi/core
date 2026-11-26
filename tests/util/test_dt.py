@@ -271,6 +271,8 @@ def test_parse_duration(
     [
         pytest.param("12:34", time(12, 34), id="hours_minutes"),
         pytest.param("12:34:56", time(12, 34, 56), id="hours_minutes_seconds"),
+        pytest.param("12:34:56:07", None, id="extra_field"),
+        pytest.param("12:34:56:", None, id="trailing_colon"),
         pytest.param("24:00", None, id="hour_out_of_range"),
         pytest.param("0:2147483648", None, id="minute_overflows_c_int"),
         pytest.param("2147483648:00", None, id="hour_overflows_c_int"),
